@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class UserController extends Controller
 {
@@ -14,8 +15,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(3);
-        return view('user.index', compact('users'));
+        // $users = User::paginate(10);
+        return view('user.index');
+    }
+
+    public function dataTable()
+    {
+        return DataTables::of(User::query())->make(true);
     }
 
     /**

@@ -16,18 +16,20 @@
       </div>
       <div class="table-responsive">
         <!-- Projects table -->
-        <table class="table align-items-center table-flush">
+        <table class="table align-items-center table-flush" id="user-table">
           <thead class="thead-light">
             <tr>
+              <th scope="col">ID</th>
               <th scope="col">Nombre</th>
               <th scope="col">E-mail</th>
-              <th scope="col">Rol</th>
-              <th scope="col"></th>
+              <th scope="col">Created_at</th>
+              {{-- <th scope="col"></th> --}}
             </tr>
           </thead>
-          <tbody>
+          {{-- <tbody>
             @foreach ($users as $user)
               <tr>
+                <th scope="row">{{ $user->id }}</th>
                 <th scope="row">{{ $user->name }}</th>
                 <td>
                   <i class="bg-danger"></i>
@@ -45,13 +47,31 @@
                 </td>
               </tr>
             @endforeach
-          </tbody>
+          </tbody> --}}
         </table>
       </div>
       <div class="card-footer border-0">
-        {{ $users->links() }}
+        {{-- {{ $users->links() }} --}}
       </div>
     </div>
   </div>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+  $(document).ready(function(){
+    $('#user-table').DataTable({
+      processing: true,
+      serverSider: true,
+      ajax: '{!! route('dataTableUser') !!}',
+      columns: [
+        {data: 'id', name: 'id'},
+        {data: 'name', name: 'name'},
+        {data: 'email', name: 'email'},
+        {data: 'created_at', name: 'created_at'}
+      ]
+    });
+  });
+  </script>
 @endsection
