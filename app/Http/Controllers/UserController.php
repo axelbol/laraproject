@@ -21,7 +21,25 @@ class UserController extends Controller
 
     public function dataTable()
     {
-        return DataTables::of(User::query())->make(true);
+        return DataTables::of(User::select('id', 'name', 'email', 'created_at'))
+        ->editColumn('created_at', function(User $user){
+            return $user->created_at->diffForHumans();
+        })
+        // ->addColumn('delete', '<form action="{{route(\'user.destroy\', $id)}}" method="POST">
+        //                     <input type="hidden" name="_method" value="DELETE">
+        //                     <input type="submit" name="submit" value="'.('Eliminar').'" class="btn btn-danger btn-sm"
+        //                     onClick="return confirm(\'¿Seguro?\')">
+        //                     {{csrf_field()}}
+        //                     </form>')
+        // ->addColumn('show', '<a href="{{route(\'user.show\', $id)}}" class="btn btn-info btn-sm">' .('Ver'). '</a>')
+        // ->addColumn('edit', '<a href="{{route(\'user.edit\', $id)}}" class="btn btn-warning btn-sm">' . ('Editar') . '</a>')
+
+        // ->addColumn('show', 'user.dataTable.show')
+        // ->addColumn('edit', 'user.dataTable.edit')
+        // ->addColumn('delete', 'user.dataTable.delete')
+        ->addColumn('btn', 'user.dataTable.btn')
+        ->rawColumns(['btn'])
+        ->toJson();
     }
 
     /**

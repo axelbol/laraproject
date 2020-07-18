@@ -1,0 +1,1 @@
+<a href="{{ route('user.edit', $id) }}" class="btn btn-danger btn-sm">Edit</a>

@@ -1,0 +1,1 @@
+<a href="{{ route('user.show', $id) }}" class="btn btn-danger btn-sm">Show</a>

@@ -23,6 +23,9 @@
               <th scope="col">Nombre</th>
               <th scope="col">E-mail</th>
               <th scope="col">Created_at</th>
+              <th scope="col">&nbsp;</th>
+              {{-- <th scope="col">Editar</th>
+              <th scope="col">Eliminar</th> --}}
               {{-- <th scope="col"></th> --}}
             </tr>
           </thead>
@@ -66,10 +69,13 @@
       serverSider: true,
       ajax: '{!! route('dataTableUser') !!}',
       columns: [
-        {data: 'id', name: 'id'},
-        {data: 'name', name: 'name'},
-        {data: 'email', name: 'email'},
-        {data: 'created_at', name: 'created_at'}
+        {data: 'id'},
+        {data: 'name'},
+        {data: 'email'},
+        {data: 'created_at'},
+        {data: 'btn' },
+        // {data: 'edit'},
+        // {data: 'delete'}
       ]
     });
   });
