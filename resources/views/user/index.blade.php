@@ -51,6 +51,41 @@
               </tr>
             @endforeach
           </tbody> --}}
+          <tbody></tbody>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td>
+                <input type="text" class="form-control filter-input" placeholder="Search name" data-column="1" />
+              </td>
+              <td>
+                <input type="text" class="form-control filter-input" placeholder="Search email" data-column="2" />
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <select data-column="1" class="form-control filter-select">
+                  <option value="">Select name</option>
+                  @foreach ($names as $name)
+                    <option value="{{ $name }}">{{ $name }}</option>
+                  @endforeach
+                </select>
+              </td>
+              <td>
+                <select data-column="2" class="form-control filter-select">
+                  <option value="">Select email</option>
+                  @foreach ($emails as $email)
+                  <option value="{{ $email }}">{{ $email }}</option>
+                  @endforeach
+                </select>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tfoot>
         </table>
       </div>
       <div class="card-footer border-0">
@@ -64,7 +99,7 @@
 @section('scripts')
 <script>
   $(document).ready(function(){
-    $('#user-table').DataTable({
+    var table = $('#user-table').DataTable({
       processing: true,
       serverSider: true,
       ajax: '{!! route('dataTableUser') !!}',
@@ -77,6 +112,18 @@
         // {data: 'edit'},
         // {data: 'delete'}
       ]
+    });
+    // text search
+    $('.filter-input').keyup(function(){
+      table.column($(this).data('column'))
+      .search($(this).val())
+      .draw();
+    });
+    // dropdown
+    $('.filter-select').change(function(){
+    table.column($(this).data('column'))
+    .search($(this).val())
+    .draw();
     });
   });
   </script>

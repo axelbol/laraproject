@@ -16,7 +16,10 @@ class UserController extends Controller
     public function index()
     {
         // $users = User::paginate(10);
-        return view('user.index');
+        $user = User::all();
+        $names = $user->sortBy('name')->pluck('name')->unique();
+        $emails = $user->sortBy('email')->pluck('email')->unique();
+        return view('user.index', compact('names', 'emails'));
     }
 
     public function dataTable()
