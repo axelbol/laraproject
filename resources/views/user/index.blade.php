@@ -111,7 +111,39 @@
         {data: 'btn' },
         // {data: 'edit'},
         // {data: 'delete'}
-      ]
+      ],
+      // merge
+      "columnDefs":[
+        {
+          "render": function(data, type, row){
+            return data +' - '+row['email'];
+          },
+          "targets": 1
+        },
+        {
+          "visible": false, "targets": [2]
+        }
+      ],
+      "pageLength": 10,
+      "lengthMenu": [10, 50],
+      "dom": 'lrtip',
+      "language":{
+        "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
+        // "info": "_TOTAL_ registros",
+        // "search": "Buscar",
+        // "paginate":{
+        //   "next": "siguiente",
+        //   "previous": "anterior"
+        // },
+        // "lengthMenu": 'Mostrar <select>' +
+        //               '<option value="10">10</option>'+
+        //               '<option value="50">50</option>'+
+        //               '</select> registros',
+        // "loadingRecords": "Cargando...",
+        // "processing": "Procesando",
+        // "emptyTable": "No hay registros",
+        // "zeroRecords": "Sin registros"
+      }
     });
     // text search
     $('.filter-input').keyup(function(){
