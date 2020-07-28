@@ -19,6 +19,23 @@
         <span class="nav-link-text">Google</span>
       </a>
     </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+        aria-expanded="false">
+        <i class="ni ni-pin-3 text-primary"></i>
+        <span class="nav-link-text">Dropdown</span>
+      </a>
+      <div class="dropdown-menu">
+        <a href="#" class="nav-link">
+          <i class="ni ni-single-02 text-yellow"></i>
+          <span class="nav-link-text">Profile 1</span>
+        </a>
+        <a href="#" class="nav-link">
+          <i class="ni ni-single-02 text-yellow"></i>
+          <span class="nav-link-text">Profile 2</span>
+        </a>
+      </div>
+    </li>
     <li class="nav-item">
       <a class="nav-link" href="examples/profile.html">
         <i class="ni ni-single-02 text-yellow"></i>
