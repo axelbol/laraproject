@@ -2,13 +2,13 @@
   <!-- Nav items -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link active" href="examples/dashboard.html">
+      <a class="nav-link" href="examples/dashboard.html">
         <i class="ni ni-tv-2 text-primary"></i>
         <span class="nav-link-text">Dashboard</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('user.index') }}">
+      <a class="nav-link {{ (request()->is('user*')) ? 'active' : '' }}" href="{{ route('user.index') }}">
         <i class="ni ni-planet text-orange"></i>
         <span class="nav-link-text">Usuarios</span>
       </a>
@@ -23,16 +23,16 @@
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
         aria-expanded="false">
         <i class="ni ni-pin-3 text-primary"></i>
-        <span class="nav-link-text">Dropdown</span>
+        <span class="nav-link-text">U. Dropdown</span>
       </a>
       <div class="dropdown-menu">
-        <a href="#" class="nav-link">
+        <a href="{{ route('user.create') }}" class="nav-link">
           <i class="ni ni-single-02 text-yellow"></i>
-          <span class="nav-link-text">Profile 1</span>
+          <span class="nav-link-text">U. Create</span>
         </a>
-        <a href="#" class="nav-link">
+        <a href="{{ route('user.index') }}" class="nav-link">
           <i class="ni ni-single-02 text-yellow"></i>
-          <span class="nav-link-text">Profile 2</span>
+          <span class="nav-link-text">U. Index</span>
         </a>
       </div>
     </li>

@@ -1,6 +1,10 @@
 # Argon template with Laravel 7
 
+This is a Laravel 7 project with __Argon Dashboard__. It has the basic CRUD for users and it also has __Data Tables__ where you can search a user.
+
 ## How to use
+
+Code for [SPA with Laravel and Vue](https://www.youtube.com/playlist?list=PLYO5TOinzgTiA3igOug-E7h51GM10N8KC)
 
 - Clone the repository with __git clone__
 - Copy __.env.example__ file to __.env__
