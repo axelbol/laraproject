@@ -1,6 +1,13 @@
 # Argon template with Laravel 7
 
-This is a Laravel 7 project with __Argon Dashboard__. It has the basic CRUD for users and it also has __Data Tables__ where you can search a user.
+This is a Laravel 7 project with __Argon Dashboard__. It has the basic CRUD for users and it´s ready to use and start working on your next idea.
+
+## What´s inside
+
+- Argon Dashboard when login.
+- CRUD for users.
+- Data Tables.
+- Two ways to search with Data Tables.
 
 ## How to use
 
